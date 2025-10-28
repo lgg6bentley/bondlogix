@@ -1,63 +1,64 @@
 import Image from "next/image";
+import Link from "next/link";
+import Footer from "@/app/components/Footer";
+import PricingDropDown from "@/app/components/PricingDropDown";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex min-h-screen flex-col bg-trust text-signal font-sans">
+      {/* Top Nav Bar */}
+      <header className="flex items-center justify-between px-6 py-4 text-sm font-medium">
+        {/* Left: Logo */}
+        <div className="flex items-center gap-3">
+          <Image
+            src="/bondlogix_logo.png"
+            alt="BondLogix Logo"
+            width={64}
+            height={64}
+            priority
+          />
+          <span className="text-lg font-broadcast tracking-wide">BondLogix</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* Right: Pricing + Auth */}
+        <div className="flex items-center gap-4">
+          <PricingDropDown />
+          <Link href="/login" className="hover:text-grit transition">Login</Link>
+          <Link
+            href="/signup"
+            className="rounded-full bg-signal px-4 py-2 text-trust font-semibold hover:bg-grit hover:text-black transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Sign Up
+          </Link>
+        </div>
+      </header>
+
+{/* Spacer block */}
+<div><div className="h-12 sm:h-16" /></div>
+
+
+
+      {/* Hero Section */}
+      <main className="flex flex-col items-center justify-center px-6 py-24 text-center sm:px-12">
+        <h1 className="text-4xl font-broadcast tracking-tight text-grit sm:text-5xl">
+          BondLogix: Branded SaaS Systems
+        </h1>
+        <p className="mt-4 max-w-xl text-lg leading-8 text-signal sm:text-xl">
+          We build founder-led platforms with trust-frequency clarity and broadcast-grade polish. AutoSec delivers audits. BondLogix builds the system.
+        </p>
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <Link
+            href="/start"
+            className="rounded-full bg-signal px-6 py-3 text-trust font-medium transition hover:bg-grit hover:text-black"
           >
-            Documentation
-          </a>
+            Start Your Build
+          </Link>
+          <Link
+            href="/docs"
+            className="rounded-full border border-signal px-6 py-3 text-signal transition hover:bg-signal hover:text-trust"
+          >
+            View Docs
+          </Link>
         </div>
       </main>
     </div>
