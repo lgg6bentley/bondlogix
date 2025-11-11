@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Rocket, LayoutGrid, Clock, Lightbulb, Zap, ArrowRight, CheckCircle, Database } from 'lucide-react';
 
-// 1. Define the Interface for OfferCard Props
+// --- TypeScript Interface to fix the build error ---
 interface OfferCardProps {
   Icon: React.ElementType; 
   title: string;
@@ -51,7 +51,7 @@ const PricingDropDown = () => {
                 {/* Plan name text: text-gray-900 (Dark text) */}
                 <p className="text-sm font-semibold text-gray-900">{plan.name}</p>
                 {/* Description text: text-gray-500 */}
-                <p className="mt-0.5 text-xs text-gray-500">{plan.description}</p>
+                <p className="mt-0.5 text-xs text-gray-500}>{plan.description}</p>
               </a>
             ))}
           </div>
@@ -117,7 +117,7 @@ const Home = () => {
     accent: '#ef4444', 
   };
 
-  // 2. OfferCard component now uses the defined interface for props
+  // OfferCard component now uses the defined interface for props
   const OfferCard: React.FC<OfferCardProps> = ({ Icon, title, description }) => (
     // Card background: bg-white (White/Light)
     <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
@@ -389,4 +389,3 @@ const Home = () => {
 };
 
 export default Home;
-
