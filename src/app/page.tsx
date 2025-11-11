@@ -3,6 +3,13 @@
 import React, { useState } from 'react';
 import { Menu, X, Rocket, LayoutGrid, Clock, Lightbulb, Zap, ArrowRight, CheckCircle, Database } from 'lucide-react';
 
+// 1. Define the Interface for OfferCard Props
+interface OfferCardProps {
+  Icon: React.ElementType; 
+  title: string;
+  description: string;
+}
+
 // --- Internal Component Definitions ---
 
 // Simplified Pricing Dropdown
@@ -56,7 +63,7 @@ const PricingDropDown = () => {
 
 // Simplified Footer
 const AppFooter = () => (
-  // Footer background: bg-gray-900 (Dark/Signal), text-white (Light text)
+  // Footer background: bg-gray-900 (Dark), text-white (Light text)
   <footer className="bg-gray-900 text-white py-12 px-6 sm:px-12 mt-16">
     <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
       <div>
@@ -110,13 +117,8 @@ const Home = () => {
     accent: '#ef4444', 
   };
 
-  const navLinks = [
-    { name: 'Offerings', href: '#offerings' },
-    { name: 'Process', href: '#process' },
-    { name: 'Integrations', href: '#integrations' },
-  ];
-
-  const OfferCard = ({ Icon, title, description }) => (
+  // 2. OfferCard component now uses the defined interface for props
+  const OfferCard: React.FC<OfferCardProps> = ({ Icon, title, description }) => (
     // Card background: bg-white (White/Light)
     <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
       <Icon className="w-10 h-10 text-red-600 mb-4" />
@@ -126,6 +128,12 @@ const Home = () => {
       <p className="text-gray-600">{description}</p>
     </div>
   );
+
+  const navLinks = [
+    { name: 'Offerings', href: '#offerings' },
+    { name: 'Process', href: '#process' },
+    { name: 'Integrations', href: '#integrations' },
+  ];
 
   return (
     // Overall page background: bg-gray-100 (Light Grey)
@@ -381,5 +389,4 @@ const Home = () => {
 };
 
 export default Home;
-
 
